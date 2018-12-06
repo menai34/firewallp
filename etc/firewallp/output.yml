@@ -1,0 +1,5 @@
+OUTPUT:
+  - oif lo accept
+  - state RELATED,ESTABLISHED accept
+  - proto icmp accept
+  - dst @NET-SPB-TEAM-IT accept

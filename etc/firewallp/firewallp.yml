@@ -1,0 +1,34 @@
+iptables:
+  logging:
+    tcp:
+      - action: 'NFLOG'
+        properties: '--nflog-group 32 --nflog-prefix "TCP REJECT:"'
+      - action: 'LOG'
+        properties: '--log-prefix "TCP REJECT:" --log-level 7 -m limit --limit 1/sec'
+      - action: 'REJECT'
+        properties: '--reject-with icmp-port-unreachable'
+    udp:
+      - action: 'NFLOG'
+        properties: '--nflog-group 32 --nflog-prefix "UDP REJECT:"'
+      - action: 'LOG'
+        properties: '--log-prefix "UDP REJECT:" --log-level 7 -m limit --limit 1/sec'
+      - action: 'REJECT'
+        properties: '--reject-with icmp-port-unreachable'
+    icmp:
+      - action: 'NFLOG'
+        properties: '--nflog-group 32 --nflog-prefix "ICMP REJECT:"'
+      - action: 'LOG'
+        properties: '--log-prefix "ICMP REJECT:" --log-level 7 -m limit --limit 1/sec'
+      - action: 'REJECT'
+        properties: '--reject-with icmp-port-unreachable'
+    unsorted:
+      - action: 'NFLOG'
+        properties: '--nflog-group 32 --nflog-prefix "UNSORTED REJECT:"'
+      - action: 'LOG'
+        properties: '--log-prefix "UNSORTED REJECT:" --log-level 7 -m limit --limit 1/sec'
+      - action: 'REJECT'
+        properties: '--reject-with icmp-port-unreachable'
+firewallp:
+  logging:
+    debug: 'yes'
+    debug_level: 10

@@ -1,0 +1,25 @@
+nat:
+  prerouting: 'ACCEPT'
+  output: 'ACCEPT'
+  postrouting: 'ACCEPT'
+
+mangle:
+  prerouting: 'ACCEPT'
+  input: 'ACCEPT'
+  forward: 'ACCEPT'
+  output: 'ACCEPT'
+  postrouting: 'ACCEPT'
+
+filter:
+  input: 'DROP'
+  forward: 'DROP'
+  output: 'DROP'
+
+raw:
+  prerouting: 'ACCEPT'
+  output: 'ACCEPT'
+
+security:
+  input: 'ACCEPT'
+  forward: 'ACCEPT'
+  output: 'ACCEPT'

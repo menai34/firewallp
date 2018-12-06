@@ -1,0 +1,13 @@
+[Unit]
+Description=firewallp - iptables and ipset configuration manager
+Before=network.service
+
+[Service]
+RemainAfterExit=yes
+ExecStart=/usr/bin/firewallp --start
+ExecStop=/usr/bin/firewallp --stop
+ExecReload=/usr/bin/firewallp --reload
+Type=oneshot
+
+[Install]
+WantedBy=basic.target

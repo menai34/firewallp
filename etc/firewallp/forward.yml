@@ -1,0 +1,5 @@
+FORWARD:
+  - state RELATED,ESTABLISHED accept
+  - src @NET-SPB-TEAM-IT accept
+  - oif vlan50 accept
+  - src @NET-SPB-TEAM-IT accept

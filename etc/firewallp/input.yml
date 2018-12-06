@@ -1,0 +1,5 @@
+INPUT:
+  - iif lo accept
+  - state RELATED,ESTABLISHED accept
+  - proto icmp  accept
+  - src @NET-SPB-TEAM-IT accept
